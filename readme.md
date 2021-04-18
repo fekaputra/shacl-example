@@ -9,5 +9,5 @@ This small program will use the reference implementation of
 [SHACL Engine](https://github.com/TopQuadrant/shacl) to check the movie ontology
 `src/main/resources/movie-owl.ttl` against `src/main/resources/movie-constraints.ttl` constraints.  
 
-The result is saved as `report.ttl` in the root folder.
+The result will be saved as `report.ttl` in the root folder.
 
