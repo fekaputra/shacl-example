@@ -1,6 +1,7 @@
 package id.semantics.shacl;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.query.ParameterizedSparqlString;
@@ -27,7 +28,7 @@ public class SwissKnife {
 
     public static Model initAndLoadModelFromResource(String dataModelFile, Lang lang) {
         InputStream dataModelIS = SwissKnife.class.getClassLoader().getResourceAsStream(dataModelFile);
-        Model dataModel = ModelFactory.createDefaultModel();
+        Model dataModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
         RDFDataMgr.read(dataModel, dataModelIS, lang);
         return dataModel;
     }

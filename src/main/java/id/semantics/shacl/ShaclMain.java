@@ -13,11 +13,16 @@ import java.io.FileOutputStream;
 public class ShaclMain {
 
     public static void main(String[] args) throws FileNotFoundException {
-        // load data
-        Model dataGraph = SwissKnife.initAndLoadModelFromResource("movie-owl.ttl", Lang.TURTLE);
 
         // load constraints
-        Model shapesGraph = SwissKnife.initAndLoadModelFromResource("movie-constraints.ttl", Lang.TURTLE);
+        Model shapesGraph = SwissKnife.initAndLoadModelFromResource("did.ttl", Lang.TURTLE);
+
+        // load data
+        Model dataGraph = SwissKnife.initAndLoadModelFromResource("did-invalid-1.ttl", Lang.TURTLE);
+
+        // load constraints
+        dataGraph.add(shapesGraph);
+        RDFDataMgr.write(new FileOutputStream("data.ttl"), dataGraph, Lang.TURTLE);
 
         // validation
         Resource validationResult = ValidationUtil.validateModel(dataGraph, shapesGraph, false);
