@@ -15,7 +15,7 @@ public class ShaclMain {
     public static void main(String[] args) throws FileNotFoundException {
 
         // load constraints
-        Model shapesGraph = SwissKnife.initAndLoadModelFromResource("did.ttl", Lang.TURTLE);
+        Model shapesGraph = SwissKnife.initAndLoadModelFromResource("did-constraints.ttl", Lang.TURTLE);
 
         // load data
         Model dataGraph = SwissKnife.initAndLoadModelFromResource("did-invalid-1.ttl", Lang.TURTLE);
